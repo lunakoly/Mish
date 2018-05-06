@@ -1,2 +1,5 @@
 # Minecraft Shell
-Minecraft Mod
+Allows to execute minecraft command scripts
+
+## syntax:
+* /mish [--raw] <script> [args]
