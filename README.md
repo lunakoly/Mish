@@ -1,5 +1,5 @@
 # Minecraft Shell
-Allows to minecraft commands in a separate file and execute it
+Allows to put minecraft commands in a separate file and execute it
 
 ## syntax:
 * __/mish [--raw] <script> [args]__
