@@ -1,0 +1,9 @@
+say HI
+say THERE!
+
+# this is a comment
+say ${test=LOL} ${test}
+say there was a ${test}
+/say ${test=fest=KEK} ${fest} ${test}
+/say ${test=fest=KEK} \${fest\} ${test}
+say if ${param} is set
