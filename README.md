@@ -18,6 +18,10 @@ _Benefits of using mish syntax_:
 * pass parameters to scripts via __/mish initArcher ${player=John}__
 * use __\\__ to escape syntax symbols like __\\${word\\}__ and __\\\\__ to display __\\__
 
+## server-side:
+If server supports __mish__ then calling __/mish__ within the client side will execute 
+scripts located in __server_folder/scripts__. This can be used to create rpg presets and so on.
+
 ## examples:
 /give __${player}__ minecraft:bow
 
