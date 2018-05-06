@@ -1,2 +1,2 @@
-# mish
+# Minecraft Shell
 Minecraft Mod
