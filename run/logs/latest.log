@@ -1,192 +1,69 @@
-[12:53:15] [main/INFO]: Extra: []
-[12:53:15] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/luna_koly/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
-[12:53:15] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[12:53:15] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[12:53:15] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[12:53:15] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
-[12:53:15] [main/INFO]: Forge Mod Loader version 14.21.1.2387 for Minecraft 1.12 loading
-[12:53:15] [main/INFO]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_131, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_131\jre
-[12:53:15] [main/INFO]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
-[12:53:15] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
-[12:53:15] [main/INFO]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
-[12:53:15] [main/INFO]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
-[12:53:15] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[12:53:15] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[12:53:15] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[12:53:15] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[12:53:15] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[12:53:15] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[12:53:16] [main/ERROR]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
-[12:53:18] [main/ERROR]: FML appears to be missing any signature data. This is not a good thing
-[12:53:18] [main/INFO]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[12:53:18] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[12:53:18] [main/INFO]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[12:53:18] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
-[12:53:18] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
-[12:53:18] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
-[12:53:19] [main/INFO]: Setting user: Player82
-[12:53:23] [main/WARN]: Skipping bad option: lastServer:
-[12:53:23] [main/INFO]: LWJGL Version: 2.9.4
-[12:53:24] [main/INFO]: -- System Details --
-Details:
-	Minecraft Version: 1.12
-	Operating System: Windows 10 (amd64) version 10.0
-	Java Version: 1.8.0_131, Oracle Corporation
-	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 479645880 bytes (457 MB) / 717750272 bytes (684 MB) up to 3791650816 bytes (3616 MB)
-	JVM Flags: 0 total; 
-	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
-	FML: 
-	Loaded coremods (and transformers): 
-	GL info: ' Vendor: 'Intel' Version: '4.5.0 - Build 22.20.16.4749' Renderer: 'Intel(R) HD Graphics 530'
-[12:53:24] [main/INFO]: MinecraftForge v14.21.1.2387 Initialized
-[12:53:24] [main/INFO]: Replaced 921 ore ingredients
-[12:53:24] [main/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
-[12:53:24] [main/INFO]: Searching D:\mc_forge\mish_1.12.2\run\mods for mods
-[12:53:25] [main/INFO]: Forge Mod Loader has identified 5 mods to load
-[12:53:26] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, mish] at CLIENT
-[12:53:26] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, mish] at SERVER
-[12:53:26] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Minecraft Shell
-[12:53:26] [Thread-3/INFO]: Using sync timing. 200 frames of Display.update took 57608367 nanos
-[12:53:26] [main/INFO]: Processing ObjectHolder annotations
-[12:53:26] [main/INFO]: Found 1168 ObjectHolder annotations
-[12:53:26] [main/INFO]: Identifying ItemStackHolder annotations
-[12:53:26] [main/INFO]: Found 0 ItemStackHolder annotations
-[12:53:26] [main/INFO]: Configured a dormant chunk cache size of 0
-[12:53:26] [Forge Version Check/INFO]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
-[12:53:26] [main/INFO]: Applying holder lookups
-[12:53:26] [main/INFO]: Holder lookups applied
-[12:53:26] [main/INFO]: Applying holder lookups
-[12:53:26] [main/INFO]: Holder lookups applied
-[12:53:26] [main/INFO]: Applying holder lookups
-[12:53:26] [main/INFO]: Holder lookups applied
-[12:53:26] [main/INFO]: Applying holder lookups
-[12:53:26] [main/INFO]: Holder lookups applied
-[12:53:26] [main/INFO]: Injecting itemstacks
-[12:53:26] [main/INFO]: Itemstack injection complete
-[12:53:27] [Forge Version Check/INFO]: [forge] Found status: UP_TO_DATE Target: null
-[12:53:29] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[12:53:29] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[12:53:29] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[12:53:30] [Thread-5/INFO]: OpenAL initialized.
-[12:53:30] [Sound Library Loader/INFO]: Sound engine started
-[12:53:34] [main/INFO]: Max texture size: 16384
-[12:53:34] [main/INFO]: Created: 512x512 textures-atlas
-[12:53:36] [main/INFO]: Injecting itemstacks
-[12:53:36] [main/INFO]: Itemstack injection complete
-[12:53:36] [main/INFO]: Forge Mod Loader has successfully loaded 5 mods
-[12:53:36] [main/WARN]: Skipping bad option: lastServer:
-[12:53:36] [main/INFO]: Narrator library for x64 successfully loaded
-[12:53:38] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
-[12:53:39] [Server thread/INFO]: Starting integrated minecraft server version 1.12
-[12:53:39] [Server thread/INFO]: Generating keypair
-[12:53:39] [Server thread/INFO]: Injecting existing registry data into this server instance
-[12:53:39] [Server thread/INFO]: Applying holder lookups
-[12:53:39] [Server thread/INFO]: Holder lookups applied
-[12:53:39] [Server thread/INFO]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@7f92250c)
-[12:53:39] [Server thread/INFO]: Loaded 488 advancements
-[12:53:39] [Server thread/INFO]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@7f92250c)
-[12:53:40] [Server thread/INFO]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@7f92250c)
-[12:53:40] [Server thread/INFO]: Preparing start region for level 0
-[12:53:41] [Server thread/INFO]: Preparing spawn area: 47%
-[12:53:41] [Server thread/INFO]: Changing view distance to 12, from 10
-[12:53:44] [Netty Local Client IO #0/INFO]: Server protocol version 2
-[12:53:44] [Netty Server IO #1/INFO]: Client protocol version 2
-[12:53:44] [Netty Server IO #1/INFO]: Client attempting to join with 5 mods : minecraft@1.12,mish@1.0.1,FML@8.0.99.99,forge@14.21.1.2387,mcp@9.19
-[12:53:44] [Netty Local Client IO #0/INFO]: [Netty Local Client IO #0] Client side modded connection established
-[12:53:44] [Server thread/INFO]: [Server thread] Server side modded connection established
-[12:53:44] [Server thread/INFO]: Player82[local:E:fcb668e4] logged in with entity id 290 at (-253.8462861918496, 80.0, 264.54449735190866)
-[12:53:44] [Server thread/INFO]: Player82 joined the game
-[12:53:45] [Server thread/INFO]: Saving and pausing game...
-[12:53:45] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
-[12:53:45] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
-[12:53:45] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
-[12:53:46] [pool-2-thread-1/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@43b14fb6[id=7328fbd9-6879-3343-b321-ed1f1a1e9892,name=Player82,properties={},legacy=false]
-com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
-	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
-	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
-	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
-	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
-	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3154) [Minecraft.class:?]
-	at net.minecraft.client.resources.SkinManager$3.run(SkinManager.java:138) [SkinManager$3.class:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_131]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_131]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_131]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_131]
-	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_131]
-[12:53:47] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2081ms behind, skipping 41 tick(s)
-[12:53:55] [Server thread/INFO]: [Player82: Set the time to 1000]
-[12:53:55] [main/INFO]: [CHAT] Set the time to 1000
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say HI
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say THERE!
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /# this is a comment
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say ${test=LOL} ${test}
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say there was a ${test}
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say ${test=fest=KEK} ${fest} ${test}
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say ${test=fest=KEK} \${fest\} ${test}
-[12:54:03] [Server thread/INFO]: [STDOUT]: PROCESSING RAW: /say if ${param} is set
-[12:54:03] [Server thread/INFO]: [Player82] HI
-[12:54:03] [Server thread/INFO]: [Player82] THERE!
-[12:54:03] [Server thread/INFO]: [Player82] ${test=LOL} ${test}
-[12:54:03] [Server thread/INFO]: [Player82] there was a ${test}
-[12:54:03] [Server thread/INFO]: [Player82] ${test=fest=KEK} ${fest} ${test}
-[12:54:03] [Server thread/INFO]: [Player82] ${test=fest=KEK} \${fest\} ${test}
-[12:54:03] [Server thread/INFO]: [Player82] if ${param} is set
-[12:54:03] [main/INFO]: [CHAT] [Player82] HI
-[12:54:03] [main/INFO]: [CHAT] [Player82] THERE!
-[12:54:03] [main/INFO]: [CHAT] Unknown command. Try /help for a list of commands
-[12:54:03] [main/INFO]: [CHAT] [Player82] ${test=LOL} ${test}
-[12:54:03] [main/INFO]: [CHAT] [Player82] there was a ${test}
-[12:54:03] [main/INFO]: [CHAT] [Player82] ${test=fest=KEK} ${fest} ${test}
-[12:54:03] [main/INFO]: [CHAT] [Player82] ${test=fest=KEK} \${fest\} ${test}
-[12:54:03] [main/INFO]: [CHAT] [Player82] if ${param} is set
-[12:54:10] [Server thread/INFO]: <Player82> +=====================+
-[12:54:10] [main/INFO]: [CHAT] <Player82> +=====================+
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say HI
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say THERE!
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say  LOL
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say there was a LOL
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say  KEK KEK
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say  ${fest} KEK
-[12:54:26] [Server thread/INFO]: [STDOUT]: PROCESSING: /say if T is set
-[12:54:26] [Server thread/INFO]: [Player82] HI
-[12:54:26] [Server thread/INFO]: [Player82] THERE!
-[12:54:26] [Server thread/INFO]: [Player82] LOL
-[12:54:26] [Server thread/INFO]: [Player82] there was a LOL
-[12:54:26] [Server thread/INFO]: [Player82] KEK KEK
-[12:54:26] [Server thread/INFO]: [Player82] ${fest} KEK
-[12:54:26] [Server thread/INFO]: [Player82] if T is set
-[12:54:26] [main/INFO]: [CHAT] [Player82] HI
-[12:54:26] [main/INFO]: [CHAT] [Player82] THERE!
-[12:54:26] [main/INFO]: [CHAT] [Player82] LOL
-[12:54:26] [main/INFO]: [CHAT] [Player82] there was a LOL
-[12:54:26] [main/INFO]: [CHAT] [Player82] KEK KEK
-[12:54:26] [main/INFO]: [CHAT] [Player82] ${fest} KEK
-[12:54:26] [main/INFO]: [CHAT] [Player82] if T is set
-[12:54:33] [Server thread/INFO]: Saving and pausing game...
-[12:54:33] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
-[12:54:33] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
-[12:54:33] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
-[12:54:34] [main/INFO]: Stopping!
-[12:54:34] [Server thread/INFO]: Stopping server
-[12:54:34] [Server thread/INFO]: Saving players
-[12:54:34] [Server thread/INFO]: Saving worlds
-[12:54:34] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
-[12:54:34] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
-[12:54:34] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
-[12:54:34] [Server thread/INFO]: Unloading dimension 0
-[12:54:34] [Server thread/INFO]: Unloading dimension -1
-[12:54:34] [Server thread/INFO]: Unloading dimension 1
-[12:54:34] [main/INFO]: SoundSystem shutting down...
-[12:54:34] [Server thread/INFO]: Applying holder lookups
-[12:54:34] [Server thread/INFO]: Holder lookups applied
-[12:54:35] [main/WARN]: Author: Paul Lamb, www.paulscode.com
+[20:34:14] [main/INFO]: Extra: []
+[20:34:14] [main/INFO]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[20:34:14] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[20:34:14] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[20:34:14] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[20:34:14] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[20:34:24] [Server thread/INFO]: Starting minecraft server version 1.12
+[20:34:28] [Server thread/INFO]: Loading properties
+[20:34:29] [Server thread/INFO]: Default game type: SURVIVAL
+[20:34:29] [Server thread/INFO]: Generating keypair
+[20:34:29] [Server thread/INFO]: Starting Minecraft server on *:25565
+[20:34:29] [Server thread/INFO]: Using default channel type
+[20:34:30] [Server thread/INFO]: Preparing level "world"
+[20:34:33] [Server thread/INFO]: Loaded 488 advancements
+[20:34:33] [Server thread/INFO]: Preparing start region for level 0
+[20:34:34] [Server thread/INFO]: Preparing spawn area: 1%
+[20:34:34] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID adcefc59-9c62-43af-93ed-0a16f9f3777b
+[20:34:35] [Server thread/INFO]: Preparing spawn area: 34%
+[20:34:35] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 9d99051c-cb37-428a-bf15-36f72ec1f3f7
+[20:34:35] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 4c87233d-a974-44e2-a217-9fa7deadd09a
+[20:34:35] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID c2719fa6-688a-46ff-ae88-6b3880d8e3b0
+[20:34:35] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 70e57de8-8b06-4e89-b644-1be87a57a2f8
+[20:34:36] [Server thread/INFO]: Done (5,671s)! For help, type "help" or "?"
+[20:34:41] [Server thread/INFO]: [STDOUT]: D:\mc_forge\mish_1.12.2\run\.\scripts
+[20:34:41] [Server thread/INFO]: [Server] HI
+[20:34:41] [Server thread/INFO]: [Server] THERE!
+[20:34:41] [Server thread/INFO]: [Server] LOL
+[20:34:41] [Server thread/INFO]: [Server] there was a LOL
+[20:34:41] [Server thread/INFO]: [Server] KEK KEK
+[20:34:41] [Server thread/INFO]: [Server] ${fest} KEK
+[20:34:41] [Server thread/INFO]: [Server] if L is set
+[20:34:50] [Server thread/INFO]: Stopping server
+[20:34:50] [Server thread/INFO]: Saving players
+[20:34:50] [Server thread/INFO]: Saving worlds
+[20:34:50] [Server thread/INFO]: Saving chunks for level 'world'/overworld
+[20:34:51] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
+[20:34:51] [Server thread/INFO]: Saving chunks for level 'world'/the_end
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: net.minecraftforge.fml.relauncher.FMLSecurityManager$ExitTrappedException
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.asm.transformers.TerminalTransformer$ExitVisitor.checkAccess(TerminalTransformer.java:166)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.asm.transformers.TerminalTransformer$ExitVisitor.systemExitCalled(TerminalTransformer.java:132)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at net.minecraft.server.gui.MinecraftServerGui$1.windowClosing(MinecraftServerGui.java:80)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Window.processWindowEvent(Window.java:2054)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at javax.swing.JFrame.processWindowEvent(JFrame.java:305)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Window.processEvent(Window.java:2013)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Component.dispatchEvent(Component.java:4711)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue.access$500(EventQueue.java:97)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$3.run(EventQueue.java:709)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$3.run(EventQueue.java:703)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.AccessController.doPrivileged(Native Method)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$4.run(EventQueue.java:731)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$4.run(EventQueue.java:729)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.AccessController.doPrivileged(Native Method)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+[20:34:51] [Server Shutdown Thread/INFO]: Stopping server
+[20:34:51] [Server Shutdown Thread/INFO]: Saving players
+[20:34:51] [Server Shutdown Thread/INFO]: Saving worlds

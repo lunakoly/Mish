@@ -1,10 +1,12 @@
 package ru.luna_koly.mish;
 
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import ru.luna_koly.mish.proxy.CommonProxy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,10 +17,21 @@ import java.io.FileNotFoundException;
 @Mod(modid = MishMod.MODID, version = MishMod.VERSION)
 public class MishMod {
     static final String MODID = "mish";
-    static final String VERSION = "1.0.1";
+    static final String VERSION = "1.0.2";
     static final String SCRIPT_EXTENSION = "mish";
 
+    @SidedProxy(
+            serverSide = "ru.luna_koly.mish.proxy.CommonProxy",
+            clientSide = "ru.luna_koly.mish.proxy.ClientProxy")
+    static CommonProxy proxy;
 
+
+    /**
+     * Generates 'scripts' dir inside '.minecraft' or the server folder
+     * and returns path to it
+     * @return path to 'scripts' folder
+     * @throws FileNotFoundException if could not create folder
+     */
     static File getScriptsDir() throws FileNotFoundException {
         // create scrips folder if needed
         File scriptsDir = new File(".", "scripts");
@@ -57,6 +70,6 @@ public class MishMod {
     @Mod.EventHandler
     public static void serverStarts(FMLServerStartingEvent e) {
         try { getScriptsDir(); } catch (Exception ex) { System.out.println(ex.getMessage()); }
-        e.registerServerCommand(new MishCommand());
+        e.registerServerCommand(new CommandMish());
     }
 }

@@ -8,6 +8,8 @@ import net.minecraft.command.SyntaxErrorException;
 import net.minecraft.server.MinecraftServer;
 import org.apache.commons.lang3.ArrayUtils;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,19 +18,25 @@ import java.util.Objects;
 /**
  * Created with love by luna_koly on 02.05.2018.
  */
-public class MishCommand extends CommandBase {
+@SuppressWarnings("WeakerAccess")
+public class CommandMish extends CommandBase {
     @Override
+    @Nonnull
     public String getName() {
         return "mish";
     }
 
     @Override
-    public String getUsage(ICommandSender sender) {
+    @Nonnull
+    public String getUsage(@Nonnull ICommandSender sender) {
         return "/mish [--raw] <path>";
     }
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+    public void execute(
+            @Nonnull MinecraftServer server,
+            @Nonnull ICommandSender sender,
+            @Nonnull String[] args) throws CommandException {
         try {
             boolean isRaw = false;
             String script = null;
@@ -87,8 +95,12 @@ public class MishCommand extends CommandBase {
         }
     }
 
-
-    private static void executeScriptRaw(File script) throws IOException {
+    /**
+     * Merely executes each not empty line from file
+     * @param script target file
+     * @throws IOException if could not read file or mish syntax error occurred
+     */
+    public static void executeScriptRaw(@Nonnull File script) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(script));
         StringBuilder command;
         String line;
@@ -99,19 +111,36 @@ public class MishCommand extends CommandBase {
 
             command = new StringBuilder(line);
             if (command.charAt(0) != '/') command.insert(0, '/');
+//            System.out.println("PROCESSING RAW: " + command.toString());
+            MishMod.proxy.executeCommand(command);
 
-            System.out.println("PROCESSING RAW: " + command.toString());
-            Minecraft.getMinecraft().player.sendChatMessage(command.toString());
         } while (line != null);
     }
 
-    private static HashMap<String, String> generateAliases(String[] args) throws SyntaxErrorException {
+    /**
+     * Parses the mish command args to create
+     * initial variables
+     * @param args - /mish [--raw] <path> [args...]
+     * @return variables and their values
+     * @throws SyntaxErrorException if found mish syntax error
+     */
+    @Nonnull
+    private static HashMap<String, String> generateAliases(@Nonnull String[] args) throws SyntaxErrorException {
         HashMap<String, String> aliases = new HashMap<>();
         parseCommand(String.join(" ", args), aliases);
         return aliases;
     }
 
-    private static String parseStatement(String line, HashMap<String, String> envir) {
+    /**
+     * Executes mish elementary syntax part (single command)
+     * @param line command
+     * @param envir variables and their values
+     * @return command result
+     */
+    @Nonnull
+    private static String parseStatement(
+            @Nonnull String line,
+            @Nonnull HashMap<String, String> envir) {
         String[] parts = line.split("=");
 
         if (parts.length >= 2) {
@@ -123,7 +152,17 @@ public class MishCommand extends CommandBase {
         return envir.getOrDefault(line, "");
     }
 
-    private static StringBuilder parseCommand(String line, HashMap<String, String> envir) throws SyntaxErrorException {
+    /**
+     * Parses mish complicated command
+     * @param line command
+     * @param envir variables and their values
+     * @return the big command with all the inner commands executed
+     * @throws SyntaxErrorException if mish syntax error found
+     */
+    @Nonnull
+    public static StringBuilder parseCommand(
+            @Nonnull String line,
+            @Nonnull HashMap<String, String> envir) throws SyntaxErrorException {
         ArrayList<StringBuilder> stack = new ArrayList<>();
         StringBuilder current = new StringBuilder();
 
@@ -158,7 +197,14 @@ public class MishCommand extends CommandBase {
         return current;
     }
 
-    private void executeScript(File script, HashMap<String, String> envir) throws IOException {
+    /**
+     * Executes minecraft command with mish syntax
+     * parsing enabled
+     * @param script target file
+     * @param envir variables and their values
+     * @throws IOException if could not read file or mish syntax error occurred
+     */
+    public void executeScript(@Nonnull File script, @Nullable HashMap<String, String> envir) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(script));
         String line = reader.readLine();
         StringBuilder command;
@@ -177,9 +223,9 @@ public class MishCommand extends CommandBase {
                 command = parseCommand(line, aliases);
 
                 if (command.charAt(0) != '/') command.insert(0, '/');
-                System.out.println("PROCESSING: " + command.toString());
+//                System.out.println("PROCESSING: " + command.toString());
+                MishMod.proxy.executeCommand(command);
 
-                Minecraft.getMinecraft().player.sendChatMessage(command.toString());
             } catch (SyntaxErrorException e) {
                 Minecraft.getMinecraft().player.sendChatMessage("Syntax Error: " + e.getMessage());
             } finally {
