@@ -2,30 +2,32 @@
 Allows to put minecraft commands in a separate file and execute it
 
 ## usage:
-* __/mish [--params] <script> [args]__
+* __/mish [--args] <script> [params]__
   
   executes __script.mish__ located in __.minecraft/scripts__ or __minecraft/scripts__ or __server_folder/scripts__
 
 ## syntax:
-_Mish introduces some brand new code features that can help you in writing scripts_:
+_Comment you code with __#__:_  
+  `# hi there!`
 
-First of all, you can define a comment with __#__:
-
-`# hi there!`
-
-* variables
-
-  use __${variable1=variable2=...=variablen=value}__ to define a variable
-  use __${variable}__ to get value of it
-  pass parameters to scripts via __/mish initArcher ${player=John}__
+_Manage variables:_  
+    __${variable1=variable2=...=variablen=value}__  
+  /say Value is: __${variable}__
+  
+_Pass parameters to scripts:_  
+  __/mish initArcher ${player=John}__
+  
+_Save flexibility with escape sequences:_  
   use __\\__ to escape syntax symbols like __\\${word\\}__ and __\\\\__ to display __\\__
+  
+_Use __if__ statement to check variable value:_  
+  ```mish
+  if ${isServer}
+       /say This script is run by a server
+   else
+       /say This script is run by ${player}
+   ```
 
-_Mish also introduces some pseudo-commands for managing th code flow_:
-To check some value use an if statement
-if ${isServer}
-    say Servers says HI
-else
-    print You are not a server/ right?
 
 ## params:
 * __--raw__
