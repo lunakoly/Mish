@@ -8,17 +8,17 @@ Allows to put minecraft commands in a separate file and execute it
 
 ## syntax:
 _Comment you code with __#__:_  
-  `# hi there!`
+* `# hi there!`
 
 _Manage variables:_  
-    __${variable1=variable2=...=variablen=value}__  
-  /say Value is: __${variable}__
+* __${variable1=variable2=...=variablen=value}__  
+* /say Value is: __${variable}__
   
 _Pass parameters to scripts:_  
-  __/mish initArcher ${player=John}__
+* __/mish initArcher ${player=John}__
   
 _Save flexibility with escape sequences:_  
-  use __\\__ to escape syntax symbols like __\\${word\\}__ and __\\\\__ to display __\\__
+* use __\\__ to escape syntax symbols like __\\${word\\}__ and __\\\\__ to display __\\__
   
 _Use __if__ statement to check variable value:_  
   ```mish
