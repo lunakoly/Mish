@@ -7,6 +7,10 @@ Allows to put minecraft commands in a separate file and execute it
   executes __script.mish__ located in __.minecraft/scripts__ or __minecraft/scripts__ or __server_folder/scripts__
 
 ## syntax:
+_Write your script the way you want. __/__ are optional:
+* `say HI`
+* `/say HI`
+
 _Comment you code with __#__:_  
 * `# hi there!`
 
@@ -15,12 +19,12 @@ _Manage variables:_
 * /say Value is: `${variable}`
   
 _Pass parameters to scripts:_  
-* __/mish initArcher ${player=John}__
+* `/mish initArcher ${player=John}`
   
 _Save flexibility with escape sequences:_  
-* use __\\__ to escape syntax symbols like __\\${word\\}__ and __\\\\__ to display __\\__
+* use `\\` to escape syntax symbols like `\\${word\\}` and `\\\\` to display `\\`
   
-_Use __if__ statement to check variable value:_  
+_Use `if` statement to check variable value:_  
   ```mish
   if ${isServer}
        /say This script is run by a server
@@ -28,22 +32,47 @@ _Use __if__ statement to check variable value:_
        /say This script is run by ${player}
    ```
    
- _Use incrementing and condition testing syntax features_:  
- * ${a`+=`b}
- * ${${c}`==`Hello}
- * ${${d}`!=`Hello}
- * ${${e}`<=`10}
- * ${${f}`>=`10}
- * ${${g}`<`5}
- * ${${h}`>`5}
+   It's important not to put __/__ before mish pseudo-commands. The __/command__'s are treated as minecraft commands for better compability.
    
- _Use __while__ statement create loops:_  
+_Use incrementing and condition testing syntax features_:  
+* ${a`+=`b}
+* ${${c}`==`Hello}
+* ${${d}`!=`Hello}
+* ${${e}`<=`10}
+* ${${f}`>=`10}
+* ${${g}`<`5}
+* ${${h}`>`5}
+   
+_Use `while` statement create loops:_  
   ```mish
+  ${i=0}
   while ${${i}<10}
        /say I = ${i}
        ${i+=1}
    ```
+   
+_Use `print` command to send message to the one who executed the command:_  
+* `print This is my message`
 
+_And `log` to send message to the server:_  
+* `log ${player} has just executed the command`
+
+## built-ins:
+* __player__
+
+  The name of the one who executed the command
+
+* __isServer__
+
+  True if the command has been executed within the physical the server
+  
+## server-side:
+If server supports __mish__ then calling __/mish__ within the client side will execute 
+scripts located in __server_folder/scripts__. This can be used to create rpg presets and so on.
+
+If an operator calls __/mish script__ then the server will firstly search for __op_script.mish__ and if there's no such file the server will seach for __script.mish__. Non-op players are not able to execute __op\___ files.
+
+Any command inside a script is executed by actual server game object, so take care of what you allow players to execute there.
 
 ## params:
 * __--raw__
@@ -59,20 +88,3 @@ _Use __if__ statement to check variable value:_
 
   Forces mish to execute non-operator scripts if called by an operator.
   
-_Benefits of using mish syntax_:
-
-## server-side:
-If server supports __mish__ then calling __/mish__ within the client side will execute 
-scripts located in __server_folder/scripts__. This can be used to create rpg presets and so on.
-
-## examples:
-/give __${player}__ minecraft:bow
-
-/give __${player} ${item} ${amount}__
-
-/scoreboard players set @e[type=__${type}__] __${score}__ 10
-
-
-__\#__ I don't know why you might want to do this but...
-
-/say __${what=Something} ${what}__
