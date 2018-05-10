@@ -22,7 +22,7 @@ _Pass parameters to scripts:_
 * `/mish initArcher ${player=John}`
   
 _Save flexibility with escape sequences:_  
-* use `\\` to escape syntax symbols like `\\${word\\}` and `\\\\` to display `\\`
+* use `\` to escape syntax symbols like `\${word\}` and `\\` to display `\`
   
 _Use `if` statement to check variable value:_  
   ```mish
