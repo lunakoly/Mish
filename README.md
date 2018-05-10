@@ -11,8 +11,8 @@ _Comment you code with __#__:_
 * `# hi there!`
 
 _Manage variables:_  
-* __${variable1=variable2=...=variablen=value}__  
-* /say Value is: __${variable}__
+* `${variable1=variable2=...=variablen=value}`  
+* /say Value is: `${variable}`
   
 _Pass parameters to scripts:_  
 * __/mish initArcher ${player=John}__
@@ -26,6 +26,22 @@ _Use __if__ statement to check variable value:_
        /say This script is run by a server
    else
        /say This script is run by ${player}
+   ```
+   
+ _Use incrementing and condition testing syntax features_:  
+ * ${a`+=`b}
+ * ${${c}`==`Hello}
+ * ${${d}`!=`Hello}
+ * ${${e}`<=`10}
+ * ${${f}`>=`10}
+ * ${${g}`<`5}
+ * ${${h}`>`5}
+   
+ _Use __while__ statement create loops:_  
+  ```mish
+  while ${${i}<10}
+       /say I = ${i}
+       ${i+=1}
    ```
 
 
