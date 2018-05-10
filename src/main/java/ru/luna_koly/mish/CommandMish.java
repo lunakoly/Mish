@@ -32,6 +32,16 @@ public class CommandMish extends CommandBase {
     }
 
     @Override
+    public int getRequiredPermissionLevel() {
+        return 0;
+    }
+
+    @Override
+    public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
+        return true;
+    }
+
+    @Override
     public void execute(
             @Nonnull MinecraftServer server,
             @Nonnull ICommandSender sender,
@@ -40,7 +50,7 @@ public class CommandMish extends CommandBase {
             Environment envir = new Environment();
             String scriptName = parseArgs(args, envir);
             envir.aliases.put("isServer", MishMod.proxy.isPhysicalServer() ? "true" : "false");
-            envir.aliases.put("say", "tell " + envir.aliases.get("player"));
+            envir.aliases.put("player", sender.getName());
 
             // no script specified
             if (scriptName == null)
@@ -53,7 +63,7 @@ public class CommandMish extends CommandBase {
             File script;
 
             // if sender is an operator then try exec 'op_' script first
-            if (!envir.noop && sender.canUseCommand(2, "mish")) {
+            if (!envir.noop && sender.canUseCommand(1, "mish")) {
                 script = new File(scriptsDir.getAbsolutePath() + File.separator + "op_" + scriptName);
 
                 if (!script.exists())
@@ -63,7 +73,7 @@ public class CommandMish extends CommandBase {
 
             if (script.exists()) {
                 if (envir.isRaw)
-                    executeScriptRaw(sender, script);
+                    executeScriptRaw(script);
                 else
                     executeScript(sender, script, envir);
 
@@ -119,11 +129,10 @@ public class CommandMish extends CommandBase {
 
     /**
      * Merely executes each not empty line from file
-     * @param sender the ICommandSender. if null MinecraftServer will be used instead
      * @param script target file
      * @throws IOException if could not read file or mish syntax error occurred
      */
-    public static void executeScriptRaw(@Nullable ICommandSender sender, @Nonnull File script) throws IOException {
+    public static void executeScriptRaw(@Nonnull File script) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(script));
         StringBuilder command;
         String line;
@@ -135,7 +144,7 @@ public class CommandMish extends CommandBase {
             command = new StringBuilder(line);
             if (command.charAt(0) != '/') command.insert(0, '/');
 //            System.out.println("PROCESSING RAW: " + command.toString());
-            MishMod.proxy.executeCommand(sender, command);
+            MishMod.proxy.executeCommandAsServer(command);
 
         } while (line != null);
     }
@@ -199,7 +208,7 @@ public class CommandMish extends CommandBase {
     /**
      * Executes minecraft command with mish syntax
      * parsing enabled
-     * @param sender the ICommandSender. if null MinecraftServer will be used instead
+     * @param sender the one who will receive error messages
      * @param script target file
      * @param envir variables and their values
      * @throws IOException if could not read file or mish syntax error occurred
@@ -224,7 +233,7 @@ public class CommandMish extends CommandBase {
      * @param skip the code will not be executed if set to true
      * @param lineNumber initial line number (first is 0)
      * @param currentIndent code block indent
-     * @param sender the ICommandSender. if null MinecraftServer will be used instead
+     * @param sender the one who will receive error messages
      * @param envir script context
      * @return number of last line executed
      */
@@ -283,7 +292,15 @@ public class CommandMish extends CommandBase {
                 if (line.isEmpty()) continue;
 
 
-                if (line.startsWith("if ")) {
+                if (line.equals("print") || line.startsWith("print ")) {
+                    MishMod.proxy.sendMessage(sender, line.substring(6));
+                    prevCommand = "print";
+
+                } else if (line.equals("log") || line.startsWith("log ")) {
+                    MishMod.proxy.sendMessage(null, line.substring(3));
+                    prevCommand = "log";
+
+                } else if (line.startsWith("if ")) {
                     prevCommand = "if";
                     execCascadeBasedOnCondition = statementCondition(line);
                     lineNumber = executeBlock(
@@ -330,7 +347,7 @@ public class CommandMish extends CommandBase {
                     if (command.charAt(0) != '/') command.insert(0, '/');
                     prevCommand = command.toString();
 //                System.out.println("PROCESSING: " + command.toString());
-                    MishMod.proxy.executeCommand(sender, command);
+                    MishMod.proxy.executeCommandAsServer(command);
                 }
 
             } catch (SyntaxErrorException e) {
@@ -365,9 +382,8 @@ public class CommandMish extends CommandBase {
         public boolean isRaw = false;
         public boolean noop = false;
 
-        public Environment() {
-            aliases.put("player", "@p");
-            aliases.put("say", "tell @p");
-        }
+//        public Environment() {
+//            aliases.put("player", "@p");
+//        }
     }
 }

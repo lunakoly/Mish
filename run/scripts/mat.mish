@@ -1,12 +1,13 @@
 ${a=2}
 ${a+=3}
-say A = ${a}
+print A = ${a}
 
 if ${${a}==5}
-    say Works
+    print Works
 
-say ${a=10} A > 9: ${${a}>9}, A < 11: ${${a}<11}
-say ${${a}>10} and ${${a}<10}
-say ${${a}>=10} and ${${a}<=10}
+print ${a=10} A > 9: ${${a}>9}, A < 11: ${${a}<11}
+print ${${a}>10} and ${${a}<10}
+print ${${a}>=10} and ${${a}<=10}
 
-${say} Hi man
+print This is a ${player} test
+log mat has been called by ${player}

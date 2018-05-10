@@ -1,44 +1,175 @@
-[21:51:35] [main/INFO]: Extra: []
-[21:51:35] [main/INFO]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
-[21:51:35] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
-[21:51:35] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
-[21:51:35] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[21:51:35] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
-[21:51:43] [Server thread/INFO]: Starting minecraft server version 1.12
-[21:51:47] [Server thread/INFO]: Loading properties
-[21:51:47] [Server thread/INFO]: Default game type: SURVIVAL
-[21:51:47] [Server thread/INFO]: Generating keypair
-[21:51:48] [Server thread/INFO]: Starting Minecraft server on *:25565
-[21:51:48] [Server thread/INFO]: Using default channel type
-[21:51:49] [Server thread/INFO]: Preparing level "world"
-[21:51:51] [Server thread/INFO]: Loaded 488 advancements
-[21:51:52] [Server thread/INFO]: Preparing start region for level 0
-[21:51:53] [Server thread/INFO]: Preparing spawn area: 0%
-[21:51:53] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID adcefc59-9c62-43af-93ed-0a16f9f3777b
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 588afcbc-f56a-4e83-921d-8833092f05c2
-[21:51:54] [Server thread/INFO]: Preparing spawn area: 33%
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 9d99051c-cb37-428a-bf15-36f72ec1f3f7
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 4c87233d-a974-44e2-a217-9fa7deadd09a
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 44daacaa-a55b-43a9-8d1d-e463e740f457
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID c2719fa6-688a-46ff-ae88-6b3880d8e3b0
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 70e57de8-8b06-4e89-b644-1be87a57a2f8
-[21:51:54] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 25941eae-6c45-4371-ac15-cd06600a3c97
-[21:51:54] [Server thread/INFO]: Done (5,809s)! For help, type "help" or "?"
-[21:51:55] [Server thread/INFO]: [Server] lol hi operman
-[21:52:00] [Server thread/INFO]: [Server] HI
-[21:52:00] [Server thread/INFO]: [Server] THERE!
-[21:52:00] [Server thread/INFO]: [Server] LOL
-[21:52:00] [Server thread/INFO]: [Server] there was a LOL
-[21:52:00] [Server thread/INFO]: [Server] KEK KEK
-[21:52:00] [Server thread/INFO]: [Server] ${fest} KEK
-[21:52:00] [Server thread/INFO]: [Server] if is set
-[21:52:03] [Server thread/INFO]: Stopping the server
-[21:52:03] [Server thread/INFO]: Stopping server
-[21:52:03] [Server thread/INFO]: Saving players
-[21:52:03] [Server thread/INFO]: Saving worlds
-[21:52:03] [Server thread/INFO]: Saving chunks for level 'world'/overworld
-[21:52:03] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
-[21:52:03] [Server thread/INFO]: Saving chunks for level 'world'/the_end
-[21:52:04] [Server Shutdown Thread/INFO]: Stopping server
-[21:52:04] [Server Shutdown Thread/INFO]: Saving players
-[21:52:04] [Server Shutdown Thread/INFO]: Saving worlds
+[23:32:50] [main/INFO]: Extra: []
+[23:32:50] [main/INFO]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[23:32:50] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[23:32:50] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[23:32:50] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[23:32:50] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[23:33:02] [Server thread/INFO]: Starting minecraft server version 1.12
+[23:33:07] [Server thread/INFO]: Loading properties
+[23:33:08] [Server thread/INFO]: Default game type: SURVIVAL
+[23:33:08] [Server thread/INFO]: Generating keypair
+[23:33:08] [Server thread/INFO]: Starting Minecraft server on *:25565
+[23:33:08] [Server thread/INFO]: Using default channel type
+[23:33:09] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[23:33:09] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[23:33:09] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[23:33:09] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[23:33:09] [Server thread/INFO]: Preparing level "world"
+[23:33:12] [Server thread/INFO]: Loaded 488 advancements
+[23:33:13] [Server thread/INFO]: Preparing start region for level 0
+[23:33:14] [Server thread/INFO]: Preparing spawn area: 0%
+[23:33:15] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID adcefc59-9c62-43af-93ed-0a16f9f3777b
+[23:33:15] [Server thread/INFO]: Preparing spawn area: 24%
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 588afcbc-f56a-4e83-921d-8833092f05c2
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 9d99051c-cb37-428a-bf15-36f72ec1f3f7
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 4c87233d-a974-44e2-a217-9fa7deadd09a
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 44daacaa-a55b-43a9-8d1d-e463e740f457
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID c2719fa6-688a-46ff-ae88-6b3880d8e3b0
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 70e57de8-8b06-4e89-b644-1be87a57a2f8
+[23:33:16] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 25941eae-6c45-4371-ac15-cd06600a3c97
+[23:33:16] [Server thread/INFO]: Done (7,249s)! For help, type "help" or "?"
+[23:33:30] [Server thread/INFO]: Player96[/127.0.0.1:49892] logged in with entity id 281 at (204.5, 72.0, 255.5)
+[23:33:30] [Server thread/INFO]: Player96 joined the game
+[23:33:37] [Server thread/INFO]: mat has been called by Player96
+[23:33:50] [Server thread/INFO]: A = 5
+[23:33:50] [Server thread/INFO]: Works
+[23:33:50] [Server thread/INFO]: A > 9: true, A < 11: true
+[23:33:50] [Server thread/INFO]: false and false
+[23:33:50] [Server thread/INFO]: true and true
+[23:33:50] [Server thread/INFO]: This is a Server test
+[23:33:50] [Server thread/INFO]: mat has been called by Server
+[23:34:01] [Server thread/INFO]: Player96 lost connection: Disconnected
+[23:34:01] [Server thread/INFO]: Player96 left the game
+[23:34:13] [Server thread/INFO]: Stopping the server
+[23:34:13] [Server thread/INFO]: Stopping server
+[23:34:13] [Server thread/INFO]: Saving players
+[23:34:13] [Server thread/INFO]: Saving worlds
+[23:34:13] [Server thread/INFO]: Saving chunks for level 'world'/overworld
+[23:34:13] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
+[23:34:13] [Server thread/INFO]: Saving chunks for level 'world'/the_end
+[23:34:13] [Server Shutdown Thread/INFO]: Stopping server
+[23:34:13] [Server Shutdown Thread/INFO]: Saving players
+[23:34:13] [Server Shutdown Thread/INFO]: Saving worlds
+L info: ' Vendor: 'Intel' Version: '4.5.0 - Build 22.20.16.4749' Renderer: 'Intel(R) HD Graphics 530'
+[23:33:05] [main/INFO]: MinecraftForge v14.21.1.2387 Initialized
+[23:33:05] [main/INFO]: Replaced 921 ore ingredients
+[23:33:05] [main/INFO]: Found 0 mods from the command line. Injecting into mod discoverer
+[23:33:05] [main/INFO]: Searching D:\mc_forge\mish_1.12.2\run\mods for mods
+[23:33:06] [main/INFO]: Forge Mod Loader has identified 5 mods to load
+[23:33:07] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, mish] at CLIENT
+[23:33:07] [main/INFO]: Attempting connection with missing mods [minecraft, mcp, FML, forge, mish] at SERVER
+[23:33:07] [Thread-3/INFO]: Using sync timing. 200 frames of Display.update took 60804425 nanos
+[23:33:08] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Minecraft Shell
+[23:33:08] [main/INFO]: Processing ObjectHolder annotations
+[23:33:08] [main/INFO]: Found 1168 ObjectHolder annotations
+[23:33:08] [main/INFO]: Identifying ItemStackHolder annotations
+[23:33:08] [main/INFO]: Found 0 ItemStackHolder annotations
+[23:33:08] [main/INFO]: Configured a dormant chunk cache size of 0
+[23:33:08] [main/INFO]: Applying holder lookups
+[23:33:08] [main/INFO]: Holder lookups applied
+[23:33:08] [main/INFO]: Applying holder lookups
+[23:33:08] [main/INFO]: Holder lookups applied
+[23:33:08] [main/INFO]: Applying holder lookups
+[23:33:08] [main/INFO]: Holder lookups applied
+[23:33:08] [main/INFO]: Applying holder lookups
+[23:33:08] [main/INFO]: Holder lookups applied
+[23:33:08] [main/INFO]: Injecting itemstacks
+[23:33:08] [main/INFO]: Itemstack injection complete
+[23:33:08] [Forge Version Check/INFO]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[23:33:11] [Forge Version Check/INFO]: [forge] Found status: UP_TO_DATE Target: null
+[23:33:12] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[23:33:12] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[23:33:12] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[23:33:12] [Thread-5/INFO]: OpenAL initialized.
+[23:33:12] [Sound Library Loader/INFO]: Sound engine started
+[23:33:18] [main/INFO]: Max texture size: 16384
+[23:33:18] [main/INFO]: Created: 512x512 textures-atlas
+[23:33:21] [main/INFO]: Injecting itemstacks
+[23:33:21] [main/INFO]: Itemstack injection complete
+[23:33:21] [main/INFO]: Forge Mod Loader has successfully loaded 5 mods
+[23:33:21] [main/WARN]: Skipping bad option: lastServer:
+[23:33:21] [main/INFO]: Narrator library for x64 successfully loaded
+[23:33:23] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[23:33:23] [main/INFO]: Connecting to 127.0.0.1, 25565
+[23:33:24] [Server Connector #1/ERROR]: Couldn't connect to server
+java.lang.NullPointerException: group
+	at io.netty.bootstrap.AbstractBootstrap.group(AbstractBootstrap.java:84) ~[AbstractBootstrap.class:?]
+	at net.minecraft.network.NetworkManager.createNetworkManagerAndConnect(NetworkManager.java:366) ~[NetworkManager.class:?]
+	at net.minecraft.client.multiplayer.GuiConnecting$1.run(GuiConnecting.java:68) [GuiConnecting$1.class:?]
+[23:33:29] [main/INFO]: Connecting to 127.0.0.1, 25565
+[23:33:29] [Netty Client IO #1/INFO]: Server protocol version 2
+[23:33:29] [Netty Client IO #1/INFO]: Injecting existing registry data into this client instance
+[23:33:30] [Netty Client IO #1/INFO]: Applying holder lookups
+[23:33:30] [Netty Client IO #1/INFO]: Holder lookups applied
+[23:33:30] [Netty Client IO #1/INFO]: [Netty Client IO #1] Client side modded connection established
+[23:33:37] [main/INFO]: [CHAT] A = 5
+[23:33:37] [main/INFO]: [CHAT] Works
+[23:33:37] [main/INFO]: [CHAT] A > 9: true, A < 11: true
+[23:33:37] [main/INFO]: [CHAT] false and false
+[23:33:37] [main/INFO]: [CHAT] true and true
+[23:33:37] [main/INFO]: [CHAT] This is a Player96 test
+[23:34:01] [main/INFO]: Applying holder lookups
+[23:34:01] [main/INFO]: Holder lookups applied
+[23:34:07] [Server thread/INFO]: Starting integrated minecraft server version 1.12
+[23:34:07] [Server thread/INFO]: Generating keypair
+[23:34:07] [Server thread/INFO]: Injecting existing registry data into this server instance
+[23:34:07] [Server thread/INFO]: Applying holder lookups
+[23:34:07] [Server thread/INFO]: Holder lookups applied
+[23:34:07] [Server thread/INFO]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@15ac0393)
+[23:34:08] [Server thread/INFO]: Loaded 488 advancements
+[23:34:08] [Server thread/INFO]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@15ac0393)
+[23:34:08] [Server thread/INFO]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@15ac0393)
+[23:34:08] [Server thread/INFO]: Preparing start region for level 0
+[23:34:09] [Server thread/INFO]: Preparing spawn area: 65%
+[23:34:09] [Server thread/INFO]: Changing view distance to 12, from 10
+[23:34:11] [Netty Local Client IO #0/INFO]: Server protocol version 2
+[23:34:11] [Netty Server IO #1/INFO]: Client protocol version 2
+[23:34:11] [Netty Server IO #1/INFO]: Client attempting to join with 5 mods : minecraft@1.12,mish@1.0.3,FML@8.0.99.99,forge@14.21.1.2387,mcp@9.19
+[23:34:11] [Netty Local Client IO #0/INFO]: [Netty Local Client IO #0] Client side modded connection established
+[23:34:11] [Server thread/INFO]: [Server thread] Server side modded connection established
+[23:34:11] [Server thread/INFO]: Player96[local:E:4bd62130] logged in with entity id 236 at (45.687862141094804, 71.0, 47.136789522563845)
+[23:34:11] [Server thread/INFO]: Player96 joined the game
+[23:34:12] [Server thread/INFO]: Saving and pausing game...
+[23:34:12] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[23:34:12] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[23:34:12] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[23:34:18] [Server thread/INFO]: [Server] HI
+[23:34:18] [Server thread/INFO]: [Server] THERE!
+[23:34:18] [Server thread/INFO]: [Server] LOL
+[23:34:18] [Server thread/INFO]: [Server] there was a LOL
+[23:34:18] [Server thread/INFO]: [Server] KEK KEK
+[23:34:18] [Server thread/INFO]: [Server] ${fest} KEK
+[23:34:18] [Server thread/INFO]: [Server] if is set
+[23:34:18] [main/INFO]: [CHAT] [Server] HI
+[23:34:18] [main/INFO]: [CHAT] [Server] THERE!
+[23:34:18] [main/INFO]: [CHAT] [Server] LOL
+[23:34:18] [main/INFO]: [CHAT] [Server] there was a LOL
+[23:34:18] [main/INFO]: [CHAT] [Server] KEK KEK
+[23:34:18] [main/INFO]: [CHAT] [Server] ${fest} KEK
+[23:34:18] [main/INFO]: [CHAT] [Server] if is set
+[23:34:23] [Server thread/INFO]: Saving and pausing game...
+[23:34:23] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[23:34:23] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[23:34:23] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[23:34:25] [main/INFO]: Using default channel type
+[23:34:25] [main/INFO]: Started on 49929
+[23:34:25] [main/INFO]: [CHAT] Local game hosted on port 49929
+[23:34:28] [Server thread/INFO]: [Server] lol hi operman
+[23:34:28] [main/INFO]: [CHAT] [Server] lol hi operman
+[23:34:29] [Server thread/INFO]: Player96 lost connection: Disconnected
+[23:34:29] [Server thread/INFO]: Player96 left the game
+[23:34:29] [Server thread/INFO]: Stopping singleplayer server as player logged out
+[23:34:29] [Server thread/INFO]: Stopping server
+[23:34:29] [Server thread/INFO]: Saving players
+[23:34:29] [Server thread/INFO]: Saving worlds
+[23:34:29] [Server thread/INFO]: Saving chunks for level 'New World'/overworld
+[23:34:30] [Server thread/INFO]: Saving chunks for level 'New World'/the_nether
+[23:34:30] [Server thread/INFO]: Saving chunks for level 'New World'/the_end
+[23:34:30] [Server thread/INFO]: Unloading dimension 0
+[23:34:30] [Server thread/INFO]: Unloading dimension -1
+[23:34:30] [Server thread/INFO]: Unloading dimension 1
+[23:34:30] [Server thread/INFO]: Applying holder lookups
+[23:34:30] [Server thread/INFO]: Holder lookups applied
+[23:34:31] [main/INFO]: Stopping!
+[23:34:31] [main/INFO]: SoundSystem shutting down...
+[23:34:31] [main/WARN]: Author: Paul Lamb, www.paulscode.com

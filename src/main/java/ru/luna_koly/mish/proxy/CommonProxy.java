@@ -35,12 +35,20 @@ public class CommonProxy {
     }
 
     /**
+     * Executes minecraft command as server
+     * @param command target command
+     */
+    public void executeCommandAsServer(StringBuilder command) {
+        executeCommand(null, command);
+    }
+
+    /**
      * Sends error message to receiver
      * @param receiver target
      * @param message contents
      */
     public void sendMessage(@Nullable ICommandSender receiver, @Nonnull String message) {
         if (receiver == null) receiver = FMLCommonHandler.instance().getMinecraftServerInstance();
-        receiver.sendMessage(new TextComponentString(message));
+        receiver.sendMessage(new TextComponentString(message.trim()));
     }
 }
