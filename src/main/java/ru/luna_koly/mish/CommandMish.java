@@ -13,7 +13,6 @@ import javax.annotation.Nullable;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 /**
  * Created with love by luna_koly on 02.05.2018.
@@ -38,56 +37,38 @@ public class CommandMish extends CommandBase {
             @Nonnull ICommandSender sender,
             @Nonnull String[] args) throws CommandException {
         try {
-            boolean isRaw = false;
-            String script = null;
-
-            // parsing args
-            int it = 0;
-            while (it < args.length) {
-                if (args[it].equals("--raw")) {
-                    isRaw = true;
-                    args = ArrayUtils.removeElement(args, it);
-
-                } else if (script == null) {
-                    script = args[it];
-                    args = ArrayUtils.removeElement(args, it);
-
-                }
-
-                it++;
-            }
+            Environment envir = new Environment();
+            String scriptName = parseArgs(args, envir);
+            envir.aliases.put("isServer", MishMod.proxy.isPhysicalServer() ? "true" : "false");
+            envir.aliases.put("say", "tell " + envir.aliases.get("player"));
 
             // no script specified
-            if (script == null) throw new IndexOutOfBoundsException();
-            // name to file
-            script += "." + MishMod.SCRIPT_EXTENSION;
+            if (scriptName == null)
+                throw new FileNotFoundException("Usage: " + getUsage(sender));
 
+            scriptName += "." + MishMod.SCRIPT_EXTENSION;
+
+            // try read files
             File scriptsDir = MishMod.getScriptsDir();
-            boolean found = false;
+            File script;
 
-            if (isRaw) {
-                for (File file : Objects.requireNonNull(scriptsDir.listFiles())) {
-                    if (file.getName().equals(script)) {
-                        executeScriptRaw(file);
-                        found = true;
-                    }
-                }
-            } else {
-                // environment from args
-                HashMap<String, String> envir = generateAliases(args);
+            // if sender is an operator then try exec 'op_' script first
+            if (!envir.noop && sender.canUseCommand(2, "mish")) {
+                script = new File(scriptsDir.getAbsolutePath() + File.separator + "op_" + scriptName);
 
-                for (File file : Objects.requireNonNull(scriptsDir.listFiles())) {
-                    if (file.getName().equals(script)) {
-                        executeScript(file, envir);
-                        found = true;
-                    }
-                }
-            }
+                if (!script.exists())
+                    script = new File(scriptsDir.getAbsolutePath() + File.separator + scriptName);
+            } else
+                script = new File(scriptsDir.getAbsolutePath() + File.separator + scriptName);
 
-            if (!found) throw new CommandException("Script '" + script + "' not found");
+            if (script.exists()) {
+                if (envir.isRaw)
+                    executeScriptRaw(sender, script);
+                else
+                    executeScript(sender, script, envir);
 
-        } catch (IndexOutOfBoundsException e) {
-            throw new CommandException("Usage: " + getUsage(sender));
+            } else throw new FileNotFoundException("Script '" + scriptName + "' not found");
+
         } catch (FileNotFoundException e) {
             throw new CommandException(e.getMessage());
         } catch (IOException e) {
@@ -96,11 +77,53 @@ public class CommandMish extends CommandBase {
     }
 
     /**
+     * Sets up environment according to the given arguments
+     * @param args actually rules for envir
+     * @param envir the environment
+     * @return requested script name
+     * @throws SyntaxErrorException if error occurred while reading args
+     */
+    private static String parseArgs(String[] args, Environment envir) throws SyntaxErrorException {
+        String script = null;
+        int it = 0;
+
+        while (it < args.length) {
+            if (args[it].equals("--raw")) {
+                envir.isRaw = true;
+                args = ArrayUtils.removeElement(args, it);
+
+            } else if (args[it].equals("--noop")) {
+                envir.noop = true;
+                args = ArrayUtils.removeElement(args, it);
+
+            } else if (args[it].equals("--max-loop-depth")) {
+                if (it + 1 < args.length) {
+                    envir.maxLoopDepth = Integer.parseInt(args[it + 1]);
+                    args = ArrayUtils.removeElement(args, it + 1);
+                }
+                args = ArrayUtils.removeElement(args, it);
+                it++;
+
+            } else if (script == null) {
+                script = args[it];
+                args = ArrayUtils.removeElement(args, it);
+            }
+
+            it++;
+        }
+
+        // setting up default vars
+        StringWork.parseDollarBrackets(String.join(" ", args), src -> parseStatement(src, envir));
+        return script;
+    }
+
+    /**
      * Merely executes each not empty line from file
+     * @param sender the ICommandSender. if null MinecraftServer will be used instead
      * @param script target file
      * @throws IOException if could not read file or mish syntax error occurred
      */
-    public static void executeScriptRaw(@Nonnull File script) throws IOException {
+    public static void executeScriptRaw(@Nullable ICommandSender sender, @Nonnull File script) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(script));
         StringBuilder command;
         String line;
@@ -112,23 +135,9 @@ public class CommandMish extends CommandBase {
             command = new StringBuilder(line);
             if (command.charAt(0) != '/') command.insert(0, '/');
 //            System.out.println("PROCESSING RAW: " + command.toString());
-            MishMod.proxy.executeCommand(command);
+            MishMod.proxy.executeCommand(sender, command);
 
         } while (line != null);
-    }
-
-    /**
-     * Parses the mish command args to create
-     * initial variables
-     * @param args - /mish [--raw] <path> [args...]
-     * @return variables and their values
-     * @throws SyntaxErrorException if found mish syntax error
-     */
-    @Nonnull
-    private static HashMap<String, String> generateAliases(@Nonnull String[] args) throws SyntaxErrorException {
-        HashMap<String, String> aliases = new HashMap<>();
-        parseCommand(String.join(" ", args), aliases);
-        return aliases;
     }
 
     /**
@@ -140,97 +149,225 @@ public class CommandMish extends CommandBase {
     @Nonnull
     private static String parseStatement(
             @Nonnull String line,
-            @Nonnull HashMap<String, String> envir) {
-        String[] parts = line.split("=");
+            @Nonnull Environment envir) {
 
+        String[] parts = line.split("==");
+        if (parts.length >= 2)
+            return parts[0].equals(parts[1]) ? "true" : "false";
+
+        parts = line.split("!=");
+        if (parts.length >= 2)
+            return parts[0].equals(parts[1]) ? "false" : "true";
+
+        parts = line.split("<=");
+        if (parts.length >= 2)
+            return Integer.parseInt(parts[0]) <= Integer.parseInt(parts[1]) ? "true" : "false";
+
+        parts = line.split(">=");
+        if (parts.length >= 2)
+            return Integer.parseInt(parts[0]) >= Integer.parseInt(parts[1]) ? "true" : "false";
+
+        parts = line.split("<");
+        if (parts.length >= 2)
+            return Integer.parseInt(parts[0]) < Integer.parseInt(parts[1]) ? "true" : "false";
+
+        parts = line.split(">");
+        if (parts.length >= 2)
+            return Integer.parseInt(parts[0]) > Integer.parseInt(parts[1]) ? "true" : "false";
+
+        parts = line.split("\\+=");
         if (parts.length >= 2) {
-            for (int it = 0; it < parts.length - 1; it++)
-                envir.put(parts[it], parts[parts.length - 1]);
+            if (envir.aliases.get(parts[0]) == null)
+                envir.aliases.put(parts[0], String.valueOf(Integer.parseInt(parts[1])));
+            else {
+                int val = Integer.parseInt(envir.aliases.get(parts[0]));
+                envir.aliases.put(parts[0], String.valueOf(val + Integer.parseInt(parts[1])));
+            }
             return "";
         }
 
-        return envir.getOrDefault(line, "");
-    }
-
-    /**
-     * Parses mish complicated command
-     * @param line command
-     * @param envir variables and their values
-     * @return the big command with all the inner commands executed
-     * @throws SyntaxErrorException if mish syntax error found
-     */
-    @Nonnull
-    public static StringBuilder parseCommand(
-            @Nonnull String line,
-            @Nonnull HashMap<String, String> envir) throws SyntaxErrorException {
-        ArrayList<StringBuilder> stack = new ArrayList<>();
-        StringBuilder current = new StringBuilder();
-
-        int it = 0;
-        while (it < line.length()) {
-            if (line.charAt(it) == '\\') {
-                if (it < line.length() - 1) current.append(line.charAt(it + 1));
-                it += 2;
-                continue;
-            }
-
-            // try read command
-            if (line.charAt(it) == '$' && it < line.length() - 1) {
-                if (line.charAt(it + 1) == '{') {
-                    stack.add(current);
-                    current = new StringBuilder();
-                    it += 2;
-                }
-            } else if (line.charAt(it) == '}') {
-                if (stack.size() == 0) throw new SyntaxErrorException("Lonely '}' found");
-
-                current = stack.get(stack.size() - 1)
-                        .append(parseStatement(current.toString(), envir));
-                stack.remove(stack.size() - 1);
-            } else {
-                current.append(line.charAt(it));
-            }
-
-            it++;
+        parts = line.split("=");
+        if (parts.length >= 2) {
+            for (int it = 0; it < parts.length - 1; it++)
+                envir.aliases.put(parts[it], parts[parts.length - 1]);
+            return "";
         }
 
-        return current;
+        return envir.aliases.getOrDefault(line, "");
     }
 
     /**
      * Executes minecraft command with mish syntax
      * parsing enabled
+     * @param sender the ICommandSender. if null MinecraftServer will be used instead
      * @param script target file
      * @param envir variables and their values
      * @throws IOException if could not read file or mish syntax error occurred
      */
-    public void executeScript(@Nonnull File script, @Nullable HashMap<String, String> envir) throws IOException {
+    public void executeScript(
+            @Nullable ICommandSender sender,
+            @Nonnull File script,
+            @Nonnull Environment envir) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(script));
         String line = reader.readLine();
-        StringBuilder command;
 
-        HashMap<String, String> aliases = envir != null ? envir : new HashMap<>();
+        while (line != null) {
+            envir.commands.add(line);
+            line = reader.readLine();
+        }
+
+        executeBlock(false, 0, 0, sender, envir);
+    }
+
+    /**
+     * Executes mish code block with 'indent' depth
+     * @param skip the code will not be executed if set to true
+     * @param lineNumber initial line number (first is 0)
+     * @param currentIndent code block indent
+     * @param sender the ICommandSender. if null MinecraftServer will be used instead
+     * @param envir script context
+     * @return number of last line executed
+     */
+    public int executeBlock(
+            boolean skip,
+            int lineNumber,
+            int currentIndent,
+            @Nullable ICommandSender sender,
+            @Nonnull Environment envir) {
+
+        boolean execCascadeBasedOnCondition = true;
+        String prevCommand = null;
+        int whileLineNumberCache;
+        StringBuilder command;
+        int whileDepth = 0;
+        String line;
 
         // parse args
 
-        while (line != null) {
-            if (line.length() == 0 || line.charAt(0) == '#') {
-                line = reader.readLine();
-                continue;
-            }
-
+        while (lineNumber < envir.commands.size()) {
             try {
-                command = parseCommand(line, aliases);
+                line = envir.commands.get(lineNumber);
+                lineNumber++;
 
-                if (command.charAt(0) != '/') command.insert(0, '/');
+                // just blank line
+                if (line.length() == 0) continue;
+
+                int indent = StringWork.getIndent(line);
+                // command is everything after the indent
+                command = new StringBuilder(line.substring(indent));
+
+                // if comment
+                if (command.charAt(0) == '#') continue;
+
+                // check if indent of non-comment command if incorrect
+                if (indent % 4 != 0) {
+                    MishMod.proxy.sendMessage(sender, "Incorrect indent at line " + lineNumber);
+                    continue;
+                }
+
+                if (indent < currentIndent) {
+                    return lineNumber - 1;
+                }
+
+                if (skip) continue;
+
+                if (indent > currentIndent) {
+                    MishMod.proxy.sendMessage(sender, "Incorrect indent at line " + lineNumber);
+                    continue;
+                }
+
+
+                command = StringWork.parseDollarBrackets(command.toString(), src -> parseStatement(src, envir));
+                line = command.toString();
+
+                if (line.isEmpty()) continue;
+
+
+                if (line.startsWith("if ")) {
+                    prevCommand = "if";
+                    execCascadeBasedOnCondition = statementCondition(line);
+                    lineNumber = executeBlock(
+                            !execCascadeBasedOnCondition,
+                            lineNumber, currentIndent + 4,
+                            sender, envir);
+
+                } else if (line.equals("else") || line.startsWith("else ")) {
+                    if ("if".equals(prevCommand)) {
+                        prevCommand = "else";
+                        lineNumber = executeBlock(
+                                execCascadeBasedOnCondition,
+                                lineNumber, currentIndent + 4,
+                                sender, envir);
+                    }
+
+                } else if (line.startsWith("while ")) {
+                    prevCommand = "while";
+                    whileDepth++;
+
+                    if (whileDepth > envir.maxLoopDepth) {
+                        MishMod.proxy.sendMessage(sender, "Max loop depth reached at line " + lineNumber);
+                        lineNumber = executeBlock(
+                                true,
+                                lineNumber, currentIndent + 4,
+                                sender, envir);
+                    } else {
+                        whileLineNumberCache = lineNumber - 1;
+                        execCascadeBasedOnCondition = statementCondition(line);
+                        int endLineNumber = executeBlock(
+                                !execCascadeBasedOnCondition,
+                                lineNumber, currentIndent + 4,
+                                sender, envir);
+
+                        if (!execCascadeBasedOnCondition) {
+                            lineNumber = endLineNumber;
+                            whileDepth = 0;
+                        } else {
+                            lineNumber = whileLineNumberCache;
+                        }
+                    }
+
+                } else {
+                    if (command.charAt(0) != '/') command.insert(0, '/');
+                    prevCommand = command.toString();
 //                System.out.println("PROCESSING: " + command.toString());
-                MishMod.proxy.executeCommand(command);
+                    MishMod.proxy.executeCommand(sender, command);
+                }
 
             } catch (SyntaxErrorException e) {
                 Minecraft.getMinecraft().player.sendChatMessage("Syntax Error: " + e.getMessage());
-            } finally {
-                line = reader.readLine();
             }
+        }
+
+        return lineNumber;
+    }
+
+    /**
+     * Returns true if line matches 'anyCommand true'
+     * Otherwise false
+     * @param line probably the command
+     * @return the boolean value based on the second word
+     */
+    private static boolean statementCondition(@Nonnull String line) {
+        String[] parts = line.split(" ");
+        if (parts.length < 2) return false;
+        return parts[1].equals("true");
+    }
+
+
+    /**
+     * Container for mish script parameters
+     */
+    public class Environment {
+        public ArrayList<String> commands = new ArrayList<>();
+        public HashMap<String, String> aliases = new HashMap<>();
+
+        public int maxLoopDepth = 100;
+        public boolean isRaw = false;
+        public boolean noop = false;
+
+        public Environment() {
+            aliases.put("player", "@p");
+            aliases.put("say", "tell @p");
         }
     }
 }

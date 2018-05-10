@@ -1,69 +1,44 @@
-[20:34:14] [main/INFO]: Extra: []
-[20:34:14] [main/INFO]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
-[20:34:14] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
-[20:34:14] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
-[20:34:14] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[20:34:14] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
-[20:34:24] [Server thread/INFO]: Starting minecraft server version 1.12
-[20:34:28] [Server thread/INFO]: Loading properties
-[20:34:29] [Server thread/INFO]: Default game type: SURVIVAL
-[20:34:29] [Server thread/INFO]: Generating keypair
-[20:34:29] [Server thread/INFO]: Starting Minecraft server on *:25565
-[20:34:29] [Server thread/INFO]: Using default channel type
-[20:34:30] [Server thread/INFO]: Preparing level "world"
-[20:34:33] [Server thread/INFO]: Loaded 488 advancements
-[20:34:33] [Server thread/INFO]: Preparing start region for level 0
-[20:34:34] [Server thread/INFO]: Preparing spawn area: 1%
-[20:34:34] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID adcefc59-9c62-43af-93ed-0a16f9f3777b
-[20:34:35] [Server thread/INFO]: Preparing spawn area: 34%
-[20:34:35] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 9d99051c-cb37-428a-bf15-36f72ec1f3f7
-[20:34:35] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 4c87233d-a974-44e2-a217-9fa7deadd09a
-[20:34:35] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID c2719fa6-688a-46ff-ae88-6b3880d8e3b0
-[20:34:35] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 70e57de8-8b06-4e89-b644-1be87a57a2f8
-[20:34:36] [Server thread/INFO]: Done (5,671s)! For help, type "help" or "?"
-[20:34:41] [Server thread/INFO]: [STDOUT]: D:\mc_forge\mish_1.12.2\run\.\scripts
-[20:34:41] [Server thread/INFO]: [Server] HI
-[20:34:41] [Server thread/INFO]: [Server] THERE!
-[20:34:41] [Server thread/INFO]: [Server] LOL
-[20:34:41] [Server thread/INFO]: [Server] there was a LOL
-[20:34:41] [Server thread/INFO]: [Server] KEK KEK
-[20:34:41] [Server thread/INFO]: [Server] ${fest} KEK
-[20:34:41] [Server thread/INFO]: [Server] if L is set
-[20:34:50] [Server thread/INFO]: Stopping server
-[20:34:50] [Server thread/INFO]: Saving players
-[20:34:50] [Server thread/INFO]: Saving worlds
-[20:34:50] [Server thread/INFO]: Saving chunks for level 'world'/overworld
-[20:34:51] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
-[20:34:51] [Server thread/INFO]: Saving chunks for level 'world'/the_end
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: net.minecraftforge.fml.relauncher.FMLSecurityManager$ExitTrappedException
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.asm.transformers.TerminalTransformer$ExitVisitor.checkAccess(TerminalTransformer.java:166)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at net.minecraftforge.fml.common.asm.transformers.TerminalTransformer$ExitVisitor.systemExitCalled(TerminalTransformer.java:132)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at net.minecraft.server.gui.MinecraftServerGui$1.windowClosing(MinecraftServerGui.java:80)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Window.processWindowEvent(Window.java:2054)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at javax.swing.JFrame.processWindowEvent(JFrame.java:305)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Window.processEvent(Window.java:2013)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Component.dispatchEventImpl(Component.java:4889)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Container.dispatchEventImpl(Container.java:2294)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Window.dispatchEventImpl(Window.java:2746)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.Component.dispatchEvent(Component.java:4711)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue.access$500(EventQueue.java:97)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$3.run(EventQueue.java:709)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$3.run(EventQueue.java:703)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.AccessController.doPrivileged(Native Method)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$4.run(EventQueue.java:731)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue$4.run(EventQueue.java:729)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.AccessController.doPrivileged(Native Method)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
-[20:34:51] [AWT-EventQueue-0/INFO]: [STDERR]: 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
-[20:34:51] [Server Shutdown Thread/INFO]: Stopping server
-[20:34:51] [Server Shutdown Thread/INFO]: Saving players
-[20:34:51] [Server Shutdown Thread/INFO]: Saving worlds
+[21:51:35] [main/INFO]: Extra: []
+[21:51:35] [main/INFO]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[21:51:35] [main/INFO]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[21:51:35] [main/INFO]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[21:51:35] [main/INFO]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[21:51:35] [main/INFO]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[21:51:43] [Server thread/INFO]: Starting minecraft server version 1.12
+[21:51:47] [Server thread/INFO]: Loading properties
+[21:51:47] [Server thread/INFO]: Default game type: SURVIVAL
+[21:51:47] [Server thread/INFO]: Generating keypair
+[21:51:48] [Server thread/INFO]: Starting Minecraft server on *:25565
+[21:51:48] [Server thread/INFO]: Using default channel type
+[21:51:49] [Server thread/INFO]: Preparing level "world"
+[21:51:51] [Server thread/INFO]: Loaded 488 advancements
+[21:51:52] [Server thread/INFO]: Preparing start region for level 0
+[21:51:53] [Server thread/INFO]: Preparing spawn area: 0%
+[21:51:53] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID adcefc59-9c62-43af-93ed-0a16f9f3777b
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 588afcbc-f56a-4e83-921d-8833092f05c2
+[21:51:54] [Server thread/INFO]: Preparing spawn area: 33%
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 9d99051c-cb37-428a-bf15-36f72ec1f3f7
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 4c87233d-a974-44e2-a217-9fa7deadd09a
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:rabbit that already exists with UUID 44daacaa-a55b-43a9-8d1d-e463e740f457
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:sheep that already exists with UUID c2719fa6-688a-46ff-ae88-6b3880d8e3b0
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 70e57de8-8b06-4e89-b644-1be87a57a2f8
+[21:51:54] [Server thread/WARN]: Keeping entity minecraft:cow that already exists with UUID 25941eae-6c45-4371-ac15-cd06600a3c97
+[21:51:54] [Server thread/INFO]: Done (5,809s)! For help, type "help" or "?"
+[21:51:55] [Server thread/INFO]: [Server] lol hi operman
+[21:52:00] [Server thread/INFO]: [Server] HI
+[21:52:00] [Server thread/INFO]: [Server] THERE!
+[21:52:00] [Server thread/INFO]: [Server] LOL
+[21:52:00] [Server thread/INFO]: [Server] there was a LOL
+[21:52:00] [Server thread/INFO]: [Server] KEK KEK
+[21:52:00] [Server thread/INFO]: [Server] ${fest} KEK
+[21:52:00] [Server thread/INFO]: [Server] if is set
+[21:52:03] [Server thread/INFO]: Stopping the server
+[21:52:03] [Server thread/INFO]: Stopping server
+[21:52:03] [Server thread/INFO]: Saving players
+[21:52:03] [Server thread/INFO]: Saving worlds
+[21:52:03] [Server thread/INFO]: Saving chunks for level 'world'/overworld
+[21:52:03] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
+[21:52:03] [Server thread/INFO]: Saving chunks for level 'world'/the_end
+[21:52:04] [Server Shutdown Thread/INFO]: Stopping server
+[21:52:04] [Server Shutdown Thread/INFO]: Saving players
+[21:52:04] [Server Shutdown Thread/INFO]: Saving worlds

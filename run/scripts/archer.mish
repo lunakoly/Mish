@@ -1,0 +1,2 @@
+/give ${player} minecraft:bow
+/give ${player} minecraft:arrow 64

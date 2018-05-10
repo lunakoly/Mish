@@ -3,7 +3,7 @@
   "modid": "mish",
   "name": "Minecraft Shell",
   "description": "Allows to execute minecraft command scripts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

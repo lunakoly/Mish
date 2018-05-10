@@ -1,0 +1,12 @@
+${i=0}
+
+while ${${i}!=10}
+    say I = ${i}
+
+    # comment
+# comment
+        # comment
+    if ${${i}<5}
+        say Ok i is ${i}
+
+    ${i+=1}

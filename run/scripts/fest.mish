@@ -1,0 +1,39 @@
+/say hi
+say bye
+    /say lol
+    say kek
+
+if ${isServer}
+    /say blol
+else
+    say bkek
+
+${isServer=false}
+
+if ${isServer}
+    /say blol2
+else
+    say bkek2
+
+say one more
+
+if ${isServer}
+    /say damn
+    say cool
+
+${isServer=true}
+
+say Is Server: ${isServer}
+
+if ${a}
+    say in a
+    if ${b}
+        say in a b
+    else
+        say in a not b
+else
+    say in not a
+    if ${b}
+        say in not a b
+    else
+        say in not a not b
