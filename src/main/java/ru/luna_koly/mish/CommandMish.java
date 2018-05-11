@@ -310,12 +310,33 @@ public class CommandMish extends CommandBase {
 
                 } else if (line.equals("else") || line.startsWith("else ")) {
                     if ("if".equals(prevCommand)) {
-                        prevCommand = "else";
-                        lineNumber = executeBlock(
-                                execCascadeBasedOnCondition,
-                                lineNumber, currentIndent + 4,
-                                sender, envir);
-                    }
+                        String[] parts = line.split(" ");
+
+                        if (parts.length > 1 && parts[1].equals("if")) {
+                            prevCommand = "if";
+
+                            if (execCascadeBasedOnCondition) {
+                                lineNumber = executeBlock(
+                                        true,
+                                        lineNumber, currentIndent + 4,
+                                        sender, envir);
+                            } else {
+                                execCascadeBasedOnCondition = statementCondition(line.substring(5));
+                                lineNumber = executeBlock(
+                                        !execCascadeBasedOnCondition,
+                                        lineNumber, currentIndent + 4,
+                                        sender, envir);
+                            }
+
+                        } else {
+                            prevCommand = "else";
+                            lineNumber = executeBlock(
+                                    execCascadeBasedOnCondition,
+                                    lineNumber, currentIndent + 4,
+                                    sender, envir);
+                        }
+                    } else
+                        MishMod.proxy.sendMessage(sender, "Lonely else found at line " + lineNumber);
 
                 } else if (line.startsWith("while ")) {
                     prevCommand = "while";
