@@ -7,7 +7,7 @@ Allows to put minecraft commands in a separate file and execute it
   executes __script.mish__ located in __.minecraft/scripts__ or __minecraft/scripts__ or __server_folder/scripts__
 
 ## syntax:
-_Write your script the way you want. __/__ are optional:
+_Write your script the way you want. __/__ are optional:_
 * `say HI`
 * `/say HI`
 
@@ -32,7 +32,7 @@ _Use `if` statement to check variable value:_
        /say This script is run by ${player}
    ```
    
-   It's important not to put __/__ before mish pseudo-commands. The __/command__'s are treated as minecraft commands for better compability.
+   It's important not to put __/__ before mish pseudo-commands. The __/command__'s are treated as minecraft commands for better compatibility.
    
 _Use incrementing and condition testing syntax features_:  
 * ${a`+=`b}
@@ -43,7 +43,7 @@ _Use incrementing and condition testing syntax features_:
 * ${${g}`<`5}
 * ${${h}`>`5}
    
-_Use `while` statement create loops:_  
+_Use `while` statement to create loops:_  
   ```mish
   ${i=0}
   while ${${i}<10}
@@ -82,7 +82,7 @@ Any command inside a script is executed by actual server game object, so take ca
 * __--max-loop-depth n__
 
   sets maximum amount of code repeats inside loops. That's because if you get an infinite loop somehow
-  you we won't be able to stop it via minecraft console
+  you won't be able to stop it via minecraft console
   
 * __--noop__
 
