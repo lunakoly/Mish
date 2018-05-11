@@ -25,8 +25,8 @@ _Save flexibility with escape sequences:_
 * use `\` to escape syntax symbols like `\${word\}` and `\\` to display `\`
   
 _Use `if` statement to check variable value:_  
-  ```mish
-  if ${isServer}
+   ```mish
+   if ${isServer}
        /say This script is run by a server
    else
        /say This script is run by ${player}
@@ -47,9 +47,9 @@ _Use `while` statement to create loops:_
   ```mish
   ${i=0}
   while ${${i}<10}
-       /say I = ${i}
-       ${i+=1}
-   ```
+      /say I = ${i}
+      ${i+=1}
+  ```
    
 _Use `print` command to send message to the one who executed the command:_  
 * `print This is my message`
