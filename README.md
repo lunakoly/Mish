@@ -42,14 +42,15 @@ _Use incrementing and condition testing syntax features_:
 * ${${f}`>=`10}
 * ${${g}`<`5}
 * ${${h}`>`5}
-  ```mish
-  if ${${a}==1}
-      ...
-  else if ${${a}==2}
-      ...
-  else
-      ...
-  ```
+
+```mish
+if ${${a}==1}
+    ...
+else if ${${a}==2}
+    ...
+else
+    ...
+```
 
    
 _Use `while` statement to create loops:_  
