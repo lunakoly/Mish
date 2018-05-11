@@ -7,7 +7,7 @@ Allows to put minecraft commands in a separate file and execute it
   executes __script.mish__ located in __.minecraft/scripts__ or __minecraft/scripts__ or __server_folder/scripts__
 
 ## syntax:
-_Write your script the way you want. __/__ are optional:_
+_Write your script the way you want. __/___ _are optional:_
 * `say HI`
 * `/say HI`
 
@@ -25,14 +25,14 @@ _Save flexibility with escape sequences:_
 * use `\` to escape syntax symbols like `\${word\}` and `\\` to display `\`
   
 _Use `if` statement to check variable value:_  
-   ```mish
-   if ${isServer}
-       /say This script is run by a server
-   else
-       /say This script is run by ${player}
-   ```
+  ```mish
+  if ${isServer}
+      /say This script is run by a server
+  else
+      /say This script is run by ${player}
+  ```
    
-   It's important not to put __/__ before mish pseudo-commands. The __/command__'s are treated as minecraft commands for better compatibility.
+  It's important not to put __/__ before mish pseudo-commands. The __/command__'s are treated as minecraft commands for better compatibility.
    
 _Use incrementing and condition testing syntax features_:  
 * ${a`+=`b}
@@ -42,6 +42,16 @@ _Use incrementing and condition testing syntax features_:
 * ${${f}`>=`10}
 * ${${g}`<`5}
 * ${${h}`>`5}
+
+  ```mish
+  if ${${a}==1}
+      ...
+  else if ${${a}==2}
+      ...
+  else
+      ...
+  ```
+
    
 _Use `while` statement to create loops:_  
   ```mish
