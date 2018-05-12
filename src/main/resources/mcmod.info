@@ -5,7 +5,7 @@
   "description": "Allows to execute minecraft command scripts",
   "version": "1.0.4",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "github.com/lunakoly/mish",
   "updateUrl": "",
   updateJSON: "https://github.com/lunakoly/mish/tree/master/downloads/update.json",
   "authorList": ["luna_koly"],
