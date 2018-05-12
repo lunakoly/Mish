@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
 @Mod(modid = MishMod.MODID, version = MishMod.VERSION)
 public class MishMod {
     static final String MODID = "mish";
-    static final String VERSION = "1.0.4";
+    static final String VERSION = "1.0.5";
     static final String SCRIPT_EXTENSION = "mish";
 
     @SidedProxy(
@@ -66,15 +66,13 @@ public class MishMod {
 
     @Mod.EventHandler
     public static void postInit(FMLPostInitializationEvent e) {
-
+        ForgeVersion.CheckResult result = ForgeVersion.getResult(Loader.instance().activeModContainer());
+        System.out.println("MISH UPDATING RESULTS: " + result.status);
     }
 
     @Mod.EventHandler
     public static void serverStarts(FMLServerStartingEvent e) {
         try { getScriptsDir(); } catch (Exception ex) { System.out.println(ex.getMessage()); }
         e.registerServerCommand(new CommandMish());
-
-        ForgeVersion.CheckResult result = ForgeVersion.getResult(Loader.instance().activeModContainer());
-        System.out.println("MISH UPDATING RESULTS: " + result.status);
     }
 }
