@@ -1,0 +1,12 @@
+{
+  "homepage": "github.com/lunakoly/mish/tree/master/downloads",
+
+  "1.12.2": {
+    "1.0.5": "New"
+  },
+
+  "promos": {
+    "1.12.2-recommended": "1.0.5",
+    "1.12.2-latest": "1.0.5"
+  }
+}

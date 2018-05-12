@@ -1,10 +1,8 @@
 package ru.luna_koly.mish;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.command.SyntaxErrorException;
 import net.minecraft.server.MinecraftServer;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -91,9 +89,8 @@ public class CommandMish extends CommandBase {
      * @param args actually rules for envir
      * @param envir the environment
      * @return requested script name
-     * @throws SyntaxErrorException if error occurred while reading args
      */
-    private static String parseArgs(String[] args, Environment envir) throws SyntaxErrorException {
+    private static String parseArgs(String[] args, Environment envir) {
         String script = null;
         int it = 0;
 
@@ -254,126 +251,122 @@ public class CommandMish extends CommandBase {
         // parse args
 
         while (lineNumber < envir.commands.size()) {
-            try {
-                line = envir.commands.get(lineNumber);
-                lineNumber++;
+            line = envir.commands.get(lineNumber);
+            lineNumber++;
 
-                // just blank line
-                if (line.length() == 0) continue;
+            // just blank line
+            if (line.length() == 0) continue;
 
-                int indent = StringWork.getIndent(line);
-                // command is everything after the indent
-                command = new StringBuilder(line.substring(indent));
+            int indent = StringWork.getIndent(line);
+            // command is everything after the indent
+            command = new StringBuilder(line.substring(indent));
 
-                // if comment
-                if (command.charAt(0) == '#') continue;
+            // if comment
+            if (command.charAt(0) == '#') continue;
 
-                // check if indent of non-comment command if incorrect
-                if (indent % 4 != 0) {
-                    MishMod.proxy.sendMessage(sender, "Incorrect indent at line " + lineNumber);
-                    continue;
-                }
+            // check if indent of non-comment command if incorrect
+            if (indent % 4 != 0) {
+                MishMod.proxy.sendMessage(sender, "Incorrect indent at line " + lineNumber);
+                continue;
+            }
 
-                if (indent < currentIndent) {
-                    return lineNumber - 1;
-                }
+            if (indent < currentIndent) {
+                return lineNumber - 1;
+            }
 
-                if (skip) continue;
+            if (skip) continue;
 
-                if (indent > currentIndent) {
-                    MishMod.proxy.sendMessage(sender, "Incorrect indent at line " + lineNumber);
-                    continue;
-                }
-
-
-                command = StringWork.parseDollarBrackets(command.toString(), src -> parseStatement(src, envir));
-                line = command.toString();
-
-                if (line.isEmpty()) continue;
+            if (indent > currentIndent) {
+                MishMod.proxy.sendMessage(sender, "Incorrect indent at line " + lineNumber);
+                continue;
+            }
 
 
-                if (line.equals("print") || line.startsWith("print ")) {
-                    MishMod.proxy.sendMessage(sender, line.substring(6));
-                    prevCommand = "print";
+            command = StringWork.parseDollarBrackets(command.toString(), src -> parseStatement(src, envir));
+            line = command.toString();
 
-                } else if (line.equals("log") || line.startsWith("log ")) {
-                    MishMod.proxy.sendMessage(null, line.substring(3));
-                    prevCommand = "log";
+            if (line.isEmpty()) continue;
 
-                } else if (line.startsWith("if ")) {
-                    prevCommand = "if";
-                    execCascadeBasedOnCondition = statementCondition(line);
+
+            if (line.equals("print") || line.startsWith("print ")) {
+                MishMod.proxy.sendMessage(sender, line.substring(6));
+                prevCommand = "print";
+
+            } else if (line.equals("log") || line.startsWith("log ")) {
+                MishMod.proxy.sendMessage(null, line.substring(3));
+                prevCommand = "log";
+
+            } else if (line.startsWith("if ")) {
+                prevCommand = "if";
+                execCascadeBasedOnCondition = statementCondition(line);
+                lineNumber = executeBlock(
+                        !execCascadeBasedOnCondition,
+                        lineNumber, currentIndent + 4,
+                        sender, envir);
+
+            } else if (line.equals("else") || line.startsWith("else ")) {
+                if ("if".equals(prevCommand)) {
+                    String[] parts = line.split(" ");
+
+                    if (parts.length > 1 && parts[1].equals("if")) {
+                        prevCommand = "if";
+
+                        if (execCascadeBasedOnCondition) {
+                            lineNumber = executeBlock(
+                                    true,
+                                    lineNumber, currentIndent + 4,
+                                    sender, envir);
+                        } else {
+                            execCascadeBasedOnCondition = statementCondition(line.substring(5));
+                            lineNumber = executeBlock(
+                                    !execCascadeBasedOnCondition,
+                                    lineNumber, currentIndent + 4,
+                                    sender, envir);
+                        }
+
+                    } else {
+                        prevCommand = "else";
+                        lineNumber = executeBlock(
+                                execCascadeBasedOnCondition,
+                                lineNumber, currentIndent + 4,
+                                sender, envir);
+                    }
+                } else
+                    MishMod.proxy.sendMessage(sender, "Lonely else found at line " + lineNumber);
+
+            } else if (line.startsWith("while ")) {
+                prevCommand = "while";
+                whileDepth++;
+
+                if (whileDepth > envir.maxLoopDepth) {
+                    MishMod.proxy.sendMessage(sender, "Max loop depth reached at line " + lineNumber);
                     lineNumber = executeBlock(
+                            true,
+                            lineNumber, currentIndent + 4,
+                            sender, envir);
+                } else {
+                    whileLineNumberCache = lineNumber - 1;
+                    execCascadeBasedOnCondition = statementCondition(line);
+                    int endLineNumber = executeBlock(
                             !execCascadeBasedOnCondition,
                             lineNumber, currentIndent + 4,
                             sender, envir);
 
-                } else if (line.equals("else") || line.startsWith("else ")) {
-                    if ("if".equals(prevCommand)) {
-                        String[] parts = line.split(" ");
-
-                        if (parts.length > 1 && parts[1].equals("if")) {
-                            prevCommand = "if";
-
-                            if (execCascadeBasedOnCondition) {
-                                lineNumber = executeBlock(
-                                        true,
-                                        lineNumber, currentIndent + 4,
-                                        sender, envir);
-                            } else {
-                                execCascadeBasedOnCondition = statementCondition(line.substring(5));
-                                lineNumber = executeBlock(
-                                        !execCascadeBasedOnCondition,
-                                        lineNumber, currentIndent + 4,
-                                        sender, envir);
-                            }
-
-                        } else {
-                            prevCommand = "else";
-                            lineNumber = executeBlock(
-                                    execCascadeBasedOnCondition,
-                                    lineNumber, currentIndent + 4,
-                                    sender, envir);
-                        }
-                    } else
-                        MishMod.proxy.sendMessage(sender, "Lonely else found at line " + lineNumber);
-
-                } else if (line.startsWith("while ")) {
-                    prevCommand = "while";
-                    whileDepth++;
-
-                    if (whileDepth > envir.maxLoopDepth) {
-                        MishMod.proxy.sendMessage(sender, "Max loop depth reached at line " + lineNumber);
-                        lineNumber = executeBlock(
-                                true,
-                                lineNumber, currentIndent + 4,
-                                sender, envir);
+                    if (!execCascadeBasedOnCondition) {
+                        lineNumber = endLineNumber;
+                        whileDepth = 0;
                     } else {
-                        whileLineNumberCache = lineNumber - 1;
-                        execCascadeBasedOnCondition = statementCondition(line);
-                        int endLineNumber = executeBlock(
-                                !execCascadeBasedOnCondition,
-                                lineNumber, currentIndent + 4,
-                                sender, envir);
-
-                        if (!execCascadeBasedOnCondition) {
-                            lineNumber = endLineNumber;
-                            whileDepth = 0;
-                        } else {
-                            lineNumber = whileLineNumberCache;
-                        }
+                        lineNumber = whileLineNumberCache;
                     }
-
-                } else {
-                    if (command.charAt(0) != '/') command.insert(0, '/');
-                    prevCommand = command.toString();
-//                System.out.println("PROCESSING: " + command.toString());
-                    MishMod.proxy.executeCommandAsServer(command);
                 }
 
-            } catch (SyntaxErrorException e) {
-                Minecraft.getMinecraft().player.sendChatMessage("Syntax Error: " + e.getMessage());
+            } else {
+                if (command.charAt(0) != '/') command.insert(0, '/');
+                prevCommand = command.toString();
+//                System.out.println("PROCESSING: " + command.toString());
+                MishMod.proxy.executeCommandAsServer(command);
             }
+
         }
 
         return lineNumber;

@@ -44,12 +44,11 @@ public class StringWork {
      * @param line any string that might have ${} fragments
      * @param f modulation for a string fragment
      * @return the same line with all the ${} fragments modulated
-     * @throws SyntaxErrorException if syntax error found
      */
     @Nonnull
     public static StringBuilder parseDollarBrackets(
             @Nonnull String line,
-            @Nonnull Function<String, String> f) throws SyntaxErrorException {
+            @Nonnull Function<String, String> f) {
         ArrayList<StringBuilder> stack = new ArrayList<>();
         StringBuilder current = new StringBuilder();
 
@@ -68,9 +67,7 @@ public class StringWork {
                     current = new StringBuilder();
                     it++;
                 }
-            } else if (line.charAt(it) == '}') {
-                if (stack.size() == 0) throw new SyntaxErrorException("Lonely '}' found");
-
+            } else if (line.charAt(it) == '}' && stack.size() != 0) {
                 current = stack.get(stack.size() - 1)
                         .append(f.apply(current.toString()));
                 stack.remove(stack.size() - 1);

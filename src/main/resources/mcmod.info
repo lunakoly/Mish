@@ -7,6 +7,7 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
+  updateJSON: "https://github.com/lunakoly/mish/tree/master/downloads/update.json",
   "authorList": ["luna_koly"],
   "credits": "The Forge, FML guys, shadowfacts.net",
   "logoFile": "",
