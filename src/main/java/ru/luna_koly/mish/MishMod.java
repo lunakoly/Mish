@@ -1,5 +1,7 @@
 package ru.luna_koly.mish;
 
+import net.minecraftforge.common.ForgeVersion;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -58,12 +60,12 @@ public class MishMod {
     }
 
     @Mod.EventHandler
-    public static void preInit(FMLInitializationEvent e) {
+    public static void init(FMLInitializationEvent e) {
 
     }
 
     @Mod.EventHandler
-    public static void preInit(FMLPostInitializationEvent e) {
+    public static void postInit(FMLPostInitializationEvent e) {
 
     }
 
@@ -71,5 +73,8 @@ public class MishMod {
     public static void serverStarts(FMLServerStartingEvent e) {
         try { getScriptsDir(); } catch (Exception ex) { System.out.println(ex.getMessage()); }
         e.registerServerCommand(new CommandMish());
+
+        ForgeVersion.CheckResult result = ForgeVersion.getResult(Loader.instance().activeModContainer());
+        System.out.println("MISH UPDATING RESULTS: " + result.status);
     }
 }
